@@ -50,13 +50,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       </ul>
-      <button data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-success my-2 my-sm-0" type="submit">Kiếm tiềnoke</button>
+      <button data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-success my-2 my-sm-0" type="submit">Kiếm tiền</button>
    </div>
 </nav>
 <div class="container" id="app">
    <div class="jumbotron text-center">
       <div class="promo">
-         <h1>Rút gọn link, làm ngắn link miễn phí, không có quảng cáo. oke nguyễn cao tai</h1>
+         <h1>Rút gọn link, làm ngắn link miễn phí, không có quảng cáo.</h1>
          <div class="promo">
             <p class="description">		  
                Website rút gọn link miễn phí, rút gọn link theo ý muốn, làm ngắn không có quảng cáo.Tốc độ truy cập cao và ổn định. Chứng chỉ bảo mật an toàn. <strong>Miễn phí và sẽ mãi như vậy.</strong>  
