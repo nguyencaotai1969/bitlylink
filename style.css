@@ -1,0 +1,159 @@
+.short-button {
+    padding: 5px 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 18px;
+    height: 43px;
+    background-color: #0067f4;
+    border: 0;
+    border-radius: 100px;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 15%) !important;
+  }
+
+  .input-style {
+    padding: 0 10px;
+    border-width: 0;
+    font-size: 1.8em;
+    background: #fff;
+    height: 43px;
+    color: #293441;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    transition: all 0.2s linear;
+    -webkit-transition: all 0.2s linear;
+  }
+
+  .bg-light {
+    background-color: #0a96f9!important;
+  }
+
+  .btn-outline-success {
+    -webkit-border-radius: 100px;
+    background: #e9ecef;
+    color: #0905ff;
+    font-weight: bold;
+  }
+
+  .description {
+    color: #747089;
+    margin-top: 20px;
+    display: block;
+    font-size: 16px;
+    line-height: 30px;
+  }
+
+  .noticer {
+        font-weight: bold;
+    font-size: 14px;
+    color: red;
+  }
+
+  section {
+    padding: 70px 0px;
+  }
+
+  section.red {
+    margin-top: 30px;
+    min-height: 30px;
+    background-color: #0a96f9;
+  }
+
+  section .feature2 {
+    padding-top: 20px;
+  }
+
+  section.red img {
+    width: 100%;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    box-shadow: 0 10px 20px rgb(0 0 0 / 15%);
+    filter: grayscale(1);
+    transition-duration: .5s;
+    text-align: center;
+    margin: auto;
+    display: block;
+  }
+
+  section.red img:hover {
+    filter: grayscale(0);
+    transition-duration: .5s;
+    cursor: pointer;
+    transform: scale(1.05);
+  }
+
+  .input-border-button{
+    border-bottom: 1px solid #1754ff;
+  }
+  .jumbotron {
+    margin-top: 50px;
+  }
+  a:hover{
+      text-decoration:none;
+  }
+  .bottom {
+      background-color: #17142c;
+  }
+  .bottom .copyright {
+      color: #e5e5e5;
+      font-weight: 600;
+  }
+  .copyright a {
+      color: #f2ff49;
+      margin-left: 3px;
+      padding-right: 3px;
+  }
+  .bottom p {
+      margin-bottom: 0;
+      line-height: 32px;
+      font-size: 16px;
+      font-weight: 400;
+  }
+  .copyright p span {
+      color: #d1caca;
+  }
+  .bottom .copyright p, .bottom .copyright a:hover{
+    color: #ffffff;  
+  }
+  .font-color{
+    color: white;
+  }
+    .icon-social {
+        width: 1.25rem;
+        height: 1.25rem;
+        fill: currentColor;
+    }
+
+    .icon-twitter {
+        background: #1DA1F2;
+    }
+
+    .icon-facebook {
+        background: #4267B2;
+    }
+
+    .icon-reddit {
+        background: #FF4500;
+    }
+
+    .icon-pinterest {
+        background: #E60023;
+    }
+
+    .icon-linkedin {
+        background: #0077B5;
+    }
+
+    .icon-email {
+        background: #6e6e6e;
+    }
+
+    .icon-qr {
+        background: #343434;
+    }
+    #basic-addon2{
+      margin-top: 9px;
+    }
