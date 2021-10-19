@@ -50,11 +50,53 @@
     font-size: 14px;
     color: red;
   }
-
+  .none-boder{
+    border:none;
+  }
+  .show-dots{
+    display: inline-block;
+    width: 410px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+  }
   section {
     padding: 12px 0px;
   }
+@media only screen and (max-width:768px){
+   .show-dots{
+    display: inline-block;
+    width: 262px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+  }
+}
+.listshorters{
+      overflow-y: scroll;
+      height: 400px;
+  }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #80a1ff;
+  border-radius:5%
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
   section.red {
     margin-top: 30px;
     min-height: 30px;

@@ -164,6 +164,32 @@ class Api{
 	    	return;
 	    }
 	}
+
+	//shorten
+	public function shorten(){
+		$select = "SELECT id,shorten_url,full_url FROM url ORDER BY id DESC limit 10";
+	    $sql = mysqli_query($this->conn,$select);
+	    $data = [];
+	    if($sql == false){
+	    	echo json_encode(['error'=>"empty record: "]);
+	    	return;
+	    }
+	    $listurl = mysqli_num_rows($sql);
+	    if($listurl > 0){
+	    	while ($row = mysqli_fetch_assoc($sql)) {
+	    		if(!empty($row)){
+	    			$row['shorten_url'] = !empty($row['shorten_url']) ? 'https://'.$_SERVER['HTTP_HOST'].'/'.$row['shorten_url'] : 'https://'.$_SERVER['HTTP_HOST']; 
+	    			array_push($data, $row);
+				}
+	    	}
+	    }
+	    if(!empty($data)){
+	    	echo json_encode([
+	    		"success" => $data,
+	    	]);
+	    	return;
+	    }
+	}
 }
 
 //check case verry
@@ -184,6 +210,10 @@ class Api{
 		case 'banner':
 			$objApi = new Api();
 			$objApi->banner();
+			break;
+		case 'shortenlist':
+			$objApi = new Api();
+			$objApi->shorten();
 			break;
 		default:
 			$objApi = new Api();

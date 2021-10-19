@@ -1,7 +1,8 @@
             var api = {
 				verry:'api.php?verry',
 				cp:'api.php?captcha',
-				banner:'api.php?banner'
+				banner:'api.php?banner',
+				shortenlist:'api.php?shortenlist'
 			}
 			var app = new Vue({
 			  el: '#app',
@@ -19,7 +20,8 @@
 			    linkOriginal:'',
 			    hidden:false,
 			    hiddenMsg:false,
-			    dataBaner:[]
+			    dataBaner:[],
+			    dataShorter:[]
 			  },
 			  methods: {
 			    short_btn: function (event) {
@@ -61,6 +63,7 @@
 	                		app.captcha = '';
 			    			app.hidden = true;
 	                		app.timeoutMessgae();
+	                		app.getShortenlist();
 	                		return;	
 	                	}
 	                })
@@ -95,9 +98,26 @@
 			    getBanner:function(){
 			    	axios.get(api.banner)
 	                .then(function (response) {
-
 	                	if(response.data.success.length > 0){
 	                			app.dataBaner = response.data.success;
+	                	}
+	                })
+	                .catch(function (error) {
+	                    console.log(error);
+	                });
+			    },
+			    coppyList:function(event){
+			    	if(!app.emptydata(event)){
+						let Url = $("."+event);
+				    	Url.select();
+				    	document.execCommand("copy");
+			    	}
+			    },
+			    getShortenlist:function(){
+			    	axios.get(api.shortenlist)
+	                .then(function (response) {
+	                	if(response.data.success.length > 0){
+	                		app.dataShorter = response.data.success; 
 	                	}
 	                })
 	                .catch(function (error) {
@@ -106,6 +126,8 @@
 			    }
 			  },
 			  created(){
+			  	document.title = 'Bitlylink, bitlylink.fun, bitlylink, link rút gọn, link rút gọn miễn phí';
+			  	document.description = 'Link rút gọn miễn phí, kiếm tiền đa kênh từ link rút gọn';
 			  	this.getBanner();
 			  }
 

@@ -10,7 +10,15 @@ header('Content-Type: text/html; charset=UTF-8');
    <head>
       <meta charset="utf-8">
       <title></title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">     
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> <link rel="icon" href="public/icon.png" sizes="32x32" />
+      <link rel="icon" href="public/icon.png" sizes="192x192" />
+      <link rel="icon" type="image/png" href="public/icon.png" />
+      <link rel="apple-touch-icon" href="public/icon.png" />
+      <meta name="msapplication-TileImage" content="public/icon.png" />
+      <link rel="stylesheet" href="public/bootstrap.min.css">
+      <meta name="og:site_name" content="CodeZone">
+      <meta property="og:type" content="website" />
+      <meta property="og:image" content="public/icon.png">
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap4.css">
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
