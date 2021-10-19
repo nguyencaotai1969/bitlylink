@@ -38,9 +38,11 @@
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
    	<!-- #comment facebook -->
    <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v12.0" nonce="4sQAQvkW"></script>
 
-     <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v12.0" nonce="4sQAQvkW"></script>
+   <div id="app">
+
+<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
    	<a class="navbar-brand" href="/">
    	<img src="public/auto_site_logo.png" alt="Rút gọn link miễn phí - Web rút gọn liên kết - Free URL">
    	</a>
@@ -53,7 +55,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <button data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-success my-2 my-sm-0" type="submit">Kiếm tiền</button>
    </div>
 </nav>
-<div class="container" id="app">
+<div class="container" >
    <div class="jumbotron text-center">
       <div class="promo">
          <h1>Rút gọn link, làm ngắn link miễn phí, không có quảng cáo.</h1>
@@ -129,23 +131,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
    </h2>
    <div class="container">
       <div class="row">
-         <div class="col-sm-2 feature2">
-            <img src="https://www.styledoubler.com/wp-content/uploads/shopee-1.jpg" alt="FPT Logo" style="height:60%;width:100%">
-         </div>
-         <div class="col-sm-2 feature2">
-            <img src="https://media3.scdn.vn/img3/2019/12_4/q5bS5n.jpg" alt="CMC Logo" style="height:60%;width:100%">
-         </div>
-         <div class="col-sm-2 feature2">
-            <img src="https://by.com.vn/static/img/brands/vietnamobile.png" alt="Vietnam Mobile Logo" style="height:60%;width:100%">
-         </div>
-         <div class="col-sm-2 feature2">
-            <img src="https://tintuc22h.com/public/home/nt7solution-jLZoOf_681803.png" alt="VPBank Logo" style="height:60%;width:100%">
-         </div>
-         <div class="col-sm-2 feature2">
-            <img src="https://by.com.vn/static/img/brands/didongthongminh.png" alt="Bitis Logo" style="height:60%;width:100%">
-         </div>
-         <div class="col-sm-2 feature2">
-            <img src="https://cdn.chanhtuoi.com/uploads/2020/06/w400/logo-lazada.png" alt="Dai hoc Duy Tan Logo" style="height:60%;width:100%">
+         <div v-if='dataBaner.length > 0' v-for="item in dataBaner" :key="item.id" class="col-sm-2 feature2">
+            <a target="_blank" v-bind:href="item.href">
+            <img v-bind:src="item.img" v-bind:alt="item.name" style="height:50%;width:100%">
+            </a>
          </div>
       </div>
    </div>
@@ -181,9 +170,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </div>
+</div>
+
 		<script type="text/javascript" src="public/axios.min.js"></script>
 		<script type="text/javascript" src="public/home.js">
 		</script>
-
    </body>
 </html>

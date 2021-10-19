@@ -36,6 +36,12 @@ header('Content-Type: text/html; charset=UTF-8');
                            Báo cáo link
                         </router-link>
                      </li>
+                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Banner">
+                        <router-link class="nav-link" to="/Banner">
+                           <i class="fa fa-fw fa-table"></i>
+                           Banner
+                        </router-link>
+                     </li>
                   </ul>
                   <ul class="navbar-nav ml-auto">
                      <li class="nav-item dropdown">
@@ -137,7 +143,6 @@ header('Content-Type: text/html; charset=UTF-8');
             
          <template>
             <div class="content-wrapper ">  
-
                <router-view class="container-fluid"></router-view>
                <footer class="sticky-footer">
                   <div class="container">
@@ -242,7 +247,6 @@ header('Content-Type: text/html; charset=UTF-8');
                         <option value='1'>Mở</option>
                         <option value='2'>Đóng</option>
                      </select>
-                     
                         <span id='error'>
                         </span> 
                   </div>
@@ -273,7 +277,7 @@ header('Content-Type: text/html; charset=UTF-8');
                                    str += `<tr>
                                        <td>${ listUrl.shorten_url }</td>
                                        <td  class='show-dots'>
-                                          <a target="_blank" class="btn btn-warning" href="${ listUrl.full_url }">
+                                          <a target="_blank" class="btn btn-primary" href="${ listUrl.full_url }">
                                                 ${ listUrl.full_url }
                                           </a>
                                        </td>
@@ -281,8 +285,7 @@ header('Content-Type: text/html; charset=UTF-8');
                                        <td >${ listUrl.status }</td>
                                        <td >${ listUrl.domain }</td>
                                     <td>
-   <button data-id-editFullurl="${listUrl.full_url}" data-id-editStatus='${listUrl.status}' data-id-editClick='${listUrl.clicks}' data-id-editId='${listUrl.id}' class="btn-edit btn btn-outline-success" type="button">
-                                          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                       <button data-id-editFullurl="${listUrl.full_url}" data-id-editStatus='${listUrl.status}' data-id-editClick='${listUrl.clicks}' data-id-editId='${listUrl.id}' class="btn-edit btn btn-outline-success" type="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                        </button>
                                        <button data-id-row="${listUrl.id}" class="btn-delete btn btn-outline-warning" type="button">
                                           <i class="fa fa-trash-o" aria-hidden="true"></i>
@@ -379,7 +382,7 @@ header('Content-Type: text/html; charset=UTF-8');
                               <div class="card-body-icon">
                                  <i class="fa fa-fw fa-comments"></i>
                               </div>
-                              <div class="mr-5">{{ counter_online }} Online</div>
+                              <div class="mr-5">{{ counter_online }}: Online</div>
                            </div>
                            <a class="card-footer text-white clearfix small z-1" href="#">
                            <span class="float-left">View Details</span>
@@ -395,7 +398,7 @@ header('Content-Type: text/html; charset=UTF-8');
                               <div class="card-body-icon">
                                  <i class="fa fa-fw fa-list"></i>
                               </div>
-                              <div class="mr-5">{{ counter_day }} Day</div>
+                              <div class="mr-5">{{ counter_day }}: Ngày</div>
                            </div>
                            <a class="card-footer text-white clearfix small z-1" href="#">
                            <span class="float-left">View Details</span>
@@ -411,7 +414,7 @@ header('Content-Type: text/html; charset=UTF-8');
                               <div class="card-body-icon">
                                  <i class="fa fa-fw fa-shopping-cart"></i>
                               </div>
-                              <div class="mr-5">{{ counter_week }} Week</div>
+                              <div class="mr-5">{{ counter_week }}: Tuần</div>
                            </div>
                            <a class="card-footer text-white clearfix small z-1" href="#">
                            <span class="float-left">View Details</span>
@@ -427,7 +430,7 @@ header('Content-Type: text/html; charset=UTF-8');
                               <div class="card-body-icon">
                                  <i class="fa fa-fw fa-support"></i>
                               </div>
-                              <div class="mr-5">{{ counter_all }} All</div>
+                              <div class="mr-5">{{ counter_all }}: Tổng</div>
                            </div>
                            <a class="card-footer text-white clearfix small z-1" href="#">
                            <span class="float-left">View Details</span>
@@ -451,13 +454,13 @@ header('Content-Type: text/html; charset=UTF-8');
                                     <canvas id="myBarChart" width="100" height="50"></canvas>
                                  </div>
                                  <div class="col-sm-4 text-center my-auto">
-                                    <div class="h4 mb-0 text-primary">7 day: {{ counter_7_day }}</div>
+                                    <div class="h4 mb-0 text-primary">7 Ngày: {{ counter_7_day }}</div>
                                     <div class="small text-muted">YTD Revenue</div>
                                     <hr>
-                                    <div class="h4 mb-0 text-warning">Week: {{ counter_week }}</div>
+                                    <div class="h4 mb-0 text-warning">Tuần: {{ counter_week }}</div>
                                     <div class="small text-muted">YTD Expenses</div>
                                     <hr>
-                                    <div class="h4 mb-0 text-success">Year: {{ counter_year }}</div>
+                                    <div class="h4 mb-0 text-success">Năm: {{ counter_year }}</div>
                                     <div class="small text-muted">YTD Margin</div>
                                  </div>
                               </div>
@@ -542,7 +545,7 @@ header('Content-Type: text/html; charset=UTF-8');
                            label: "Revenue",
                            backgroundColor: "rgba(2,117,216,1)",
                            borderColor: "rgba(2,117,216,1)",
-                           data: [ localStorage.getItem("counter_before_day_1"),
+                           data: [  localStorage.getItem("counter_before_day_1"),
                                     localStorage.getItem("counter_before_day_2"),
                                     localStorage.getItem("counter_before_day_3"),
                                     localStorage.getItem("counter_before_day_4"),
@@ -641,9 +644,145 @@ header('Content-Type: text/html; charset=UTF-8');
                     
 
              }
+      const Banner = {
+         name:'Banner',
+         props:{
+            tools:[]
+         },
+         template: `<div class="card mb-3">
+            <div class="card-header">
+               <i class="fa fa-table"></i> Data Table Example
+            </div>
+            <div class="card-body">
+               <div class="table-responsive">
+                  <table id="dataTableBanner"class="table table-bordered"  width="100%" cellspacing="0">
+                     <thead>
+                        <tr>
+                           <th>Name</th>
+                           <th>Image</th>
+                           <th>Href</th>
+                           <th>Date</th>
+                           <th>Setting</th>
+                        </tr>
+                     </thead>
+                     <tbody id='renderdataBanner'>
+                   
+                     </tbody>
+                     <tfoot>
+                        <tr>
+                           <th>Name</th>
+                           <th>Image</th>
+                           <th>Href</th>
+                           <th>Date</th>
+                           <th>Setting</th>
+                        </tr>
+                     </tfoot>
+                  </table>
+               </div>
+            </div>
+            <div class="card-footer small text-muted">Updated: {{ update_at }}</div>
+            <div id="ModalBanner" class="modal fade seminor-login-modal" data-backdrop="static">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Cảnh bảo bạn đang xóa !</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Bạn có chắc chắn muốn xóa không ?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary ok-delete" data-delete-id="" >Xóa</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="ModalBanneredit" class="modal fade seminor-login-modal" data-backdrop="static">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title"Sửa</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                  <div class="form-group">
+                     <label for="recipient-name" class="col-form-label">Fullurl:</label>
+                     <input type="text" class="form-control editFullurl">
+                  </div>
+                  <div class="form-group">
+                     <label for="recipient-name" class="col-form-label">Clicks:</label>
+                     <input type="number" class="form-control editClicks">
+                  </div>
+                  <div class="form-group">
+                     <label for="recipient-name" class="col-form-label">Status:</label>
+                     <select class="form-control editStatus">
+                        <option value='1'>Mở</option>
+                        <option value='2'>Đóng</option>
+                     </select>
+                        <span id='error'>
+                        </span> 
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary ok-edit" data-edit-id="" >Sửa</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+         </div>`,
+         data: function(){
+                     return {
+                        update_at: new Date().toLocaleString(),
+                     }
+                  },
+         methods:{
+               getUrl(){
+                  let str = '';
+                  axios.get('api_admin.php?listBanner')
+                        .then(response =>{
+                           if(response.data.success){
+                                 response.data.success.forEach((listUrl)=>{
+                                   str += `<tr>
+                                       <td>${ listUrl.name }</td>
+                                       <td ><img src="${ listUrl.img }"style="height:60%;width:100%"></td>
+                                       <td  class='show-dots'>
+                                          <a target="_blank" class="btn btn-primary" href="${ listUrl.href }">
+                                                ${ listUrl.href }
+                                          </a>
+                                       </td>
+                                       <td >${ listUrl.create_at }</td>
+                                    <td>
+                                       <button class="btn-edit btn btn-outline-success" type="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                       </button>
+                                       <button class="btn-delete btn btn-outline-warning" type="button">
+                                          <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                       </button>
+                                    </td>
+                                 </tr>`;  
+                              });
+                              $("#renderdataBanner").empty().append(str);
+                              $('#dataTableBanner').DataTable();
+
+                           }
+                        }).catch(function (error) {
+                           console.log(error);
+                        });
+               },
+            },
+         created(){
+            this.getUrl();
+            }
+      }
       const routes = [
        { path: '/', component: Home },
        { path: '/data', component: DataUrl },
+       { path: '/banner', component: Banner },
       ];
       const router = new VueRouter({
       	 routes // short for `routes: routes`

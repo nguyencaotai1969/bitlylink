@@ -229,6 +229,33 @@ class Admin{
 		echo json_encode($msg);
 		return;
 	}
+
+	//get banner
+	public function listBanner(){
+		$select = "SELECT name,img,href,create_at,id FROM banner ORDER BY id DESC";
+	    $sql = mysqli_query($this->conn,$select);
+	    $data = [];
+	    if($sql == false){
+	    	echo json_encode(['error'=>"empty record: "]);
+	    	return;
+	    }
+	    $listurl = mysqli_num_rows($sql);
+	    if($listurl > 0){
+	    	while ($row = mysqli_fetch_assoc($sql)) {
+	    		if(!empty($row)){
+	    			array_push($data, $row);
+				}
+	    	}
+	    }
+	    if(!empty($data)){
+	    	echo json_encode([
+	    		"success" => $data,
+	    	]);
+	    	return;
+	    }
+	}
+
+	//login
 	public function login(){
 			if(!empty($this->dataRequest)){
 				$username =		$this->dataRequest->username ? $this->dataRequest->username : 'sai_admin';
@@ -252,7 +279,8 @@ class Admin{
 		    echo json_encode(['success'=>"successfully!"]);
 	        return;
 	}
-	//details
+
+	//logout
 	public function logout(){
 		if(!empty($_SESSION['user'])){
 			unset($_SESSION['user']);
@@ -281,5 +309,8 @@ switch ($get) {
 			break;
 		case 'editUrl':
 			$ObjAdmin->editUrl();
+			break;
+		case 'listBanner':
+			$ObjAdmin->listBanner();
 			break;
 }

@@ -72,7 +72,6 @@ class Api{
 	    //thêm 1 bản ghi của link rút gon
 	 	$this->insertTable_url($hidden_url,$shorten_url);
 
-
 	}
 	private function insertTable_url($hidden_url,$full_url){
 		trim($hidden_url);
@@ -107,7 +106,6 @@ class Api{
 	    return;
 	}
 
-
 	//chuyển hướng trang rút gon shorten_url
 	public function renderPage($shorten_url){
 		
@@ -127,6 +125,7 @@ class Api{
 		}
 		return;
 	}
+
 	//capcha
 	public function captcha(){
 		$text = rand(10000,99999); 
@@ -140,11 +139,35 @@ class Api{
 		imagestring($image_p, $font_size, 5, 5, $text, $white); 
 		imagejpeg($image_p, null, 80); 
 	}
+
+	//banner
+	public function banner(){
+		$select = "SELECT name,img,href,create_at,id FROM banner ORDER BY id DESC";
+	    $sql = mysqli_query($this->conn,$select);
+	    $data = [];
+	    if($sql == false){
+	    	echo json_encode(['error'=>"empty record: "]);
+	    	return;
+	    }
+	    $listurl = mysqli_num_rows($sql);
+	    if($listurl > 0){
+	    	while ($row = mysqli_fetch_assoc($sql)) {
+	    		if(!empty($row)){
+	    			array_push($data, $row);
+				}
+	    	}
+	    }
+	    if(!empty($data)){
+	    	echo json_encode([
+	    		"success" => $data,
+	    	]);
+	    	return;
+	    }
+	}
 }
 
 //check case verry
 	$get = !empty($_GET) ? trim(str_replace('/','',array_keys($_GET)[0])) : 'empty_value';
-
 	switch ($get) {
 		case 'verry':
 			$objApi = new Api();
@@ -157,7 +180,11 @@ class Api{
 		case 'empty_value':
 			$objApi = new Api();
 			$objApi->counterIp($_SERVER['REMOTE_ADDR']);
-
+			break;
+		case 'banner':
+			$objApi = new Api();
+			$objApi->banner();
+			break;
 		default:
 			$objApi = new Api();
 			$objApi->renderPage($get);

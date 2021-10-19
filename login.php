@@ -114,11 +114,12 @@ session_start();
 	                		return;
 		                	}
 		                	if(response.data.success){
-		                		location.reload()
 		                		app.message = `<strong>Success!</strong> ${response.data.success}`;
 		                		app.errorsActive = false;
 		                		app.successActive = true;
 				    				app.hidden = true;
+		                		location.reload()
+
 		                		return;	
 		                	}
 		                })

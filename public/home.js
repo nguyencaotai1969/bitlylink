@@ -1,6 +1,7 @@
             var api = {
 				verry:'api.php?verry',
 				cp:'api.php?captcha',
+				banner:'api.php?banner'
 			}
 			var app = new Vue({
 			  el: '#app',
@@ -17,7 +18,8 @@
 			    linkBily:'',
 			    linkOriginal:'',
 			    hidden:false,
-			    hiddenMsg:false
+			    hiddenMsg:false,
+			    dataBaner:[]
 			  },
 			  methods: {
 			    short_btn: function (event) {
@@ -89,8 +91,23 @@
 			    	let Url = $("#short-link");
 			    	Url.select();
 			    	document.execCommand("copy");
+			    },
+			    getBanner:function(){
+			    	axios.get(api.banner)
+	                .then(function (response) {
+
+	                	if(response.data.success.length > 0){
+	                			app.dataBaner = response.data.success;
+	                	}
+	                })
+	                .catch(function (error) {
+	                    console.log(error);
+	                });
 			    }
 			  },
+			  created(){
+			  	this.getBanner();
+			  }
 
 			});
 			app.captchas();
