@@ -10,7 +10,8 @@ header('Content-Type: text/html; charset=UTF-8');
    <head>
       <meta charset="utf-8">
       <title></title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> <link rel="icon" href="public/icon.png" sizes="32x32" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> 
+      <link rel="icon" href="public/icon.png" sizes="32x32" />
       <link rel="icon" href="public/icon.png" sizes="192x192" />
       <link rel="icon" type="image/png" href="public/icon.png" />
       <link rel="apple-touch-icon" href="public/icon.png" />
@@ -19,8 +20,9 @@ header('Content-Type: text/html; charset=UTF-8');
       <meta name="og:site_name" content="CodeZone">
       <meta property="og:type" content="website" />
       <meta property="og:image" content="public/icon.png">
-      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
-      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap4.css">
+           <link rel="stylesheet" href="public/bootstrap.min.css">
+
+      <link rel="stylesheet" type="text/css" href="public/dataTables.bootstrap4.css">
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
       <link rel="stylesheet" type="text/css" href="style-admin.css">
       <script src="public/vue.js"></script>
@@ -163,17 +165,15 @@ header('Content-Type: text/html; charset=UTF-8');
          </template>
       </div>
    </body>
-   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-
-   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper.js"></script>
-   <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
-   <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
-   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
-   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/js/dataTables.bootstrap4.js"></script>
-   <script type="text/javascript" src="public/axios.min.js"></script>
-   <script src="public/vue-router.js"></script>
-   <script type="text/javascript" src="public/admin.js">
-   </script>
+      <script src="public/jquery.min.js"></script>
+      <script type="text/javascript" src="public/popper.js"></script>
+      <script type="text/javascript" src="public/jquery.dataTables.js"></script>
+      <script type="text/javascript" src="public/Chart.js"></script>
+      <script type="text/javascript" src="public/bootstrap.min.js"></script>
+      <script type="text/javascript" src="public/dataTables.bootstrap4.js"></script>
+      <script type="text/javascript" src="public/axios.min.js"></script>
+      <script type="text/javascript" src="public/vue-router.js"></script>
+      <script type="text/javascript" src="public/admin.js"></script>
    <script  defer type="text/javascript">
       //routing
       const DataUrl = { 
@@ -302,14 +302,15 @@ header('Content-Type: text/html; charset=UTF-8');
                                  </tr>`;  
                               });
                               $("#renderdata").empty().append(str);
-                              $('#dataTable').DataTable();
+                              $('#dataTable').DataTable( {
+          "aaSorting": []
+        });
 
                            }
                         }).catch(function (error) {
                            console.log(error);
                         });
                },
-             
                btn_delete(){
                   const id_delete = $(".ok-delete").attr('data-delete-id');
                   if(id_delete != ""){
@@ -318,7 +319,9 @@ header('Content-Type: text/html; charset=UTF-8');
                          }).then(function (response) {
                            if(response.data.successfully){
                               $("#Modal").modal('hide');
-                              $('#dataTable').DataTable();
+                              $('#dataTable').DataTable({
+          "aaSorting": []
+        });
                            }
                          }).catch(function(errors){
                            console.log(errors);
@@ -775,7 +778,9 @@ header('Content-Type: text/html; charset=UTF-8');
                                  </tr>`;  
                               });
                               $("#renderdataBanner").empty().append(str);
-                              $('#dataTableBanner').DataTable();
+                              $('#dataTableBanner').DataTable({
+          "aaSorting": []
+        });
 
                            }
                         }).catch(function (error) {

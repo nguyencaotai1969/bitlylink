@@ -33,6 +33,10 @@ class Api{
 		$shorten_url = str_replace(' ', '', $og_url);
 		$ran_url = substr(md5(microtime()), rand(0, 26), 5);
 		$hidden_url = mysqli_real_escape_string($this->conn, $ran_url);
+		if(!isset($_SESSION["vercode"])){
+			echo json_encode(['error'=>'SESSION vercode not isset']);
+	        return;
+		}
 	    if ($this->dataRequest->captcha != (string) $_SESSION["vercode"] OR $_SESSION["vercode"]=='')  {
 	    	echo json_encode(['error'=>'Invalid verification code!']);
 	        return;
@@ -74,6 +78,7 @@ class Api{
 
 	}
 	private function insertTable_url($hidden_url,$full_url){
+
 		trim($hidden_url);
 		trim($full_url);
 
